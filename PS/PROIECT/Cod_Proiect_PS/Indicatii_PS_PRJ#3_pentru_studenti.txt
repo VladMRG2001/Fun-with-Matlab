@@ -1,0 +1,247 @@
+Faza 1, punctul a
+~~~~~~~~~~~~~~~~~
+  . Se va initia apelul: 
+
+    >> [omega_p,omega_s,Delta_p,Ts] = PS_PRJ_3_Faza_1a(ng,ns) ; 
+
+    unde ng = numarul grupei, iar ns este numarul de ordine al studentului in grupa sa. 
+    (vezi fisierul <PS_PRJ_3_[ng,ns].xls>),
+    (Functia aceasta (ca si cea care urmeaza), este disponibila pe Moodle in 
+    subdirectorul 12 si saptamana #11.)
+  . Primele doua argumente de iesire sunt pulsatiile de proiectare a filtrului, exprimate 
+    prin valori in banda (0,pi). De asemenea, rutina returneaza omega_p < omega_s.  
+  . Al  doilea argument de iesire, Delta_p, este toleranta din banda de trecere. Toleranta 
+    din banda de stop, Delta_s, este egala cu Delta_p. 
+  . Al treilea argument de iesire, Ts, este perioada de esantionare, exprimata in secunde. 
+    ~~~~~~~
+  . Atentie! Memorati cei 4 parametri de proiectare returnati (omega_p, omega_s, Delta_p, Ts), 
+             deoarece veti mai avea nevoie de ei la punctele si fazele urmatoare. 
+    ~~~~~~~
+  . Pentru a demonstra performanta filtrului proiectat, se va trasa caracteristica de frecventa 
+    a acestuia. Graficele aferente (spectru si faza) se vor trasa folosind functia FREQZ cu argumente 
+    de iesire, iar rezolutia de reprezentare trebuie sa fie de minim 1000 de puncte. Pentru spectru, se 
+    pot folosi functiile ABS si DB (conversie la decibeli). Pentru afisarea fazei, puteti folosi functia 
+    auxiliara UNWRAP (impreuna cu functia ANGLE), care diminueaza oscilatiile/rupturile 
+    acesteia si permite observarea variatiei liniare in banda de trecere. 
+  . Pe graficul spectrului, se vor trasa cele doua verticale corespunzatoare pulsatiilor folosite in 
+    proiectare si o a treia pe pozitia pulsatiei normalizate de taiere. Pentru a calcula pulsatia de 
+    taiere, se vor folosi relatiile (6.19) si (6.27) din prezentarea proiectului de la sedinta de laborator.
+    Pulsatia de taiere calculata se va afisa la consola. 
+  . Tot pe graficul spectrului, se vor trasa trei linii orizontale: doua pentru a marca tolerantele la 
+    nivelul benzii de trecere (una deasupra si alta sub axa orizontala, la distanta [Delta_p]_dB de aceasta) 
+    si una corespunzatoare tolerantei in banda de stop. 
+    ~~~~~~~
+  . Atentie! Convertiti pozitiile orizontalelor in dB, inainte de a fi trasate. 
+    ~~~~~~~
+  . In fine, pe graficul spectrului, se vor indica perioada de esantionare si ordinul filtrului. 
+    In acest scop, se pot folosi functiile: SPRINTF, INT2STR, TEXT sau GTEXT. 
+  . Nu este suficient sa prezentati caracteristica in frecventa, trebuie sa fiti pregatiti sa 
+    raspundeti la intrebari legate de aspectul acesteia.
+
+Faza 1, punctul b
+~~~~~~~~~~~~~~~~~
+  . Se vor folosi datele de proiectare de la punctul precedent. La acest punct, este util sa 
+    rezolvati mai intai quiz-ul propus la sedinta de laborator, dupa prezentarea proiectului.
+    ~~~~~~~
+  . Atentie! Toate calculele efectuate trebuie incluse in raportul proiectului. 
+    ~~~~~~~
+  . Se va afisa noua caracteristica a filtrului similar cu cea de la punctul precedent.
+  . Se va afisa o pereche de grafice de eroare intre caracteristicile in frecventa ale filtrelor de 
+    la punctele a si b. Un grafic prezinta diferenta dintre spectre si un alt grafic diferenta dintre faze. 
+  . Se vor calcula si afisa la normele acestor diferente pe graficele erorilor. Puteti folosi functiile 
+    NORM, SPRINTF, TEXT/GTEXT din MATLAB in acest scop. 
+  . Incercati sa explicati cauzele diferentelor dintre filtrele proiectate la punctele a si b. 
+
+Faza 1, punctul c
+~~~~~~~~~~~~~~~~~
+  . Raspunsul la acest punct se gaseste in rezolvarea quiz-ului propus la sedinta de laborator, 
+    dupa prezentarea proiectului. 
+    ~~~~~~~
+  . Atentie! Demonstratia teoretica a dependentei sau independentei de Ts trebuie inclusa 
+             in raportul proiectului. 
+    ~~~~~~~
+    Pentru testare, veti folosi Ts obtinuta la punctul a., pe care o puteti modifica astfel: 
+    0.1*Ts, Ts/4, Ts/2, 3*Ts/4, 5*Ts/4, 7*Ts/4, 9*Ts/4, 3*Ts. Sunt 8 valori, in total.
+  . Pentru demonstrare, se vor afisa doua matrici de grafice: una pentru Ts inferior celui fixat 
+    si alta pentru Ts superior celui fixat. 
+  . O matrice de grafice se poate construi pe acelasi ecran cu ajutorul functiei SUBPLOT. Matricile 
+    cerute vor avea dimensiunile 4x4. Fiecare coloana corespunde unui Ts. Elementele coloanei sunt: 
+      1. Spectrul filtrului in dB. 
+      2. Eroarea spectrala fata de spectrul filtrului de la punctul a. Pe grafic, se va specifica 
+         norma erorii.
+      3. Faza filtrului. 
+      4. Eroarea fata de faza filtrului de la puctul a. Pe grafic, se va specifica norma erorii.
+    ~~~~~~~
+  . Atentie! Nu afisati graficele cate unul pe ecran, deoarece sunt multe si greu de baleiat. 
+             La acest punct, nu trebuie sa aveti decat doua ecrane cu grafice, altfel riscati 
+             sa fiti penalizati.
+    ~~~~~~~
+  . Incercati sa explicati cauzele diferentelor dintre filtrele proiectate la punctele a si c. 
+
+Faza 1, punctul d
+~~~~~~~~~~~~~~~~~
+  . Folositi Delta_p=Delta_s de la punctul a., pe care le puteti modifica astfel: 
+    Delta_{p,s}/2, Delta_{p,s}, 3*Delta_{p,s}/2, 2*Delta_{p,s}. Sunt 16 combinatii {Delta_p,Delta_s}
+    de testat. 
+    ~~~~~~~
+  . Atentie! Parametrii de proiectare omega_p si omega_s raman constanti si egali cu cei de la 
+             punctul a.
+    ~~~~~~~
+  . Pentru demonstrare, se vor afisa doua matrici de grafice, fiecare avand dimensiunea 4x4. Graficele 
+    sunt grupate in perechi pe verticala: spectru (sus) si faza (jos). Fiecare pereche corespunde unei 
+    combinatii {Delta_p,Delta_s}. Primele 8 combinatii vor conduce la prima matrice de grafice si 
+    ultimele 8 combinatii - la a doua matrice de grafice. Pentru fiecare combinatie {Delta_p,Delta_s} 
+    se vor afisa pe grafice: combinatia {Delta_p,Delta_s} aferenta (la spectru) si ordinul minimal al 
+    filtrului (la faza).
+  . Incercati sa indicati filtrul cel mai bun, in opinia voastra. 
+    ~~~~~~~
+  . Atentie! Filtrul "cel mai bun" ar trebui sa aiba caracteristica foarte aproape de cea ideala 
+             si ordinul cat mai mic. Dilema de care va veti lovi este aceea ca aceste doua proprietati 
+             sunt in opozitie, deci trebuie gasit un compromis intre ele.
+    ~~~~~~~
+
+Faza 1, punctul e
+~~~~~~~~~~~~~~~~~
+  . Specificatiile de proiectare sunt cele de la punctul a. 
+  . Pentru a rezolva acest punct, trebuie sa vedeti, mai intai, cum se apeleaza functiile FIR1 si FIRLS. 
+  . Apelul tipic al functiei FIR1 este (se poate vedea si pagina 13 din prezentarea de laborator a 
+    primului proiect, adica din fisierul <01_PS_PRJ#1.pdf> aflat in subdirectorul 12 pe platforma Moodle)
+    este:
+     >> h = fir1(M,freq_c) ; 
+    unde M+1 este ordinul filtrului (h va fi de lungime M+1), iar freq_c este un numar intre 0 si 1 
+    indicand frecventa de taiere a filtrului. Se poate lasa fereastra implicita (Hamming). Este clar ca 
+    trebuie determinata freq_c. Pentru aceasta, se va calcula omega_c (pulsatia normalizata de taiere) 
+    cu ajutorul relatiilor (6.6) si (6.27). Apoi, freq_c=omega_c/pi (avand in vedere ca omega_c este 
+    intre 0 si pi).
+  . Apelul tipic al functiei FIRLS este (se poate vedea si pagina 9 din prezentarea de laborator a 
+    celui de-al doilea proiect, adica din fisierul <02_PS_PRJ#2.pdf> aflat in subdirectorul 12 pe 
+    platforma Moodle) este:
+     >> h = firls(M,W,A) ;
+    unde M+1 este ordinul filtrului (h va fi de lungime M+1), W = [0 freq_p freq_s 1] si A = [1 1 0 0]. 
+    Frecventele normalizate freq_p si freq_s se obtin prin impartirea lui omega_p, respectiv omega_s la pi. 
+    Vectorul W, in conjunctie cu vectorul A, arata care sunt benzile de trecere si stopare. Astfel, 
+    banda de trecere este intre W(1)=0 si W(1)=freq_p, acolo unde A(1)=1 si A(2)=1. Pentru A(3)=0 si A(4)=0, 
+    avem banda de stopare intre W(3)=freq_s si W(4)=1. Acestea sunt caracteristici ale unui FTJ. 
+  . Pentru a gasi oricare dintre filtrele FIR, se procedeaza astfel:
+     1. Se preia ordinul M de la punctul a.
+     2. Se proiecteaza filtrul FIR de ordin M. (Apelurile functiilor FIR1 si FIRLS se vor efectua cu M-1.) 
+     3. Pentru filtrul proiectat, se testeaza incadrarea in tolerantele impuse. Pentru aceasta, 
+        daca h este secventa pondere a filtrului analizat, se construieste, mai intai, raspunsul in 
+        frecventa H, cu ajutorul functiei FREQZ. Rezolutia va fi de minim 1000 de puncte. Aceasta 
+        inseamna ca H va fi un vector de lungime K minim 1000. Pentru a testa incadrarea lui H in 
+        tolerantele impuse, ne intereseaza valorile lui |H| (calculat cu ABS, dar nu in dB!), in 
+        omega_p, respectiv omega_s. Cum se pot gasi aceste valori? Tot FREQZ returneaza, la cerere, 
+        axa pulsatiei normalizate esantionate [0,pi], intr-un vector omega de lungime egala cu cea 
+        a lui H. Din vectorul omega se extrag separat numai pulsatiile cel mult egale cu omega_p si 
+        pulsatiile cel putin egale cu omega_s. Cei doi vectori care rezulta au lungimi mai mici, 
+        sa zicem K_p, respectiv K_s. Este clar ca valoarea lui |H| in omega_p este aproximativ cea 
+        din pozitia K_p, iar valoarea sa in omega_s este aproximativ cea din pozitia K-K_s. De ce
+        "aproximativ"? Deoarece axa pulsatiilor este esantionata cu un pas de valoare pi/K. Nu este 
+        obligatoriu ca omega_p si/sau omega_s sa fie un multiplu intreg de pi/K, astfel, ca se iau 
+        valorile de tip k*pi/K (cu k intreg) cele mai apropiate de omega_p, respectiv_omega_s date. 
+        Cu cat K este mai mare, cu atat precizia e mai buna. 
+     4. Daca filtrul verifica specificatiile de proiectare, atunci M curent este ordinul sau. 
+        Altfel, se incearca marirea lui M si se sare la pasul 2. 
+  . Daca unul dintre filtrele FIR indeplineste deja cerintele de proiectare pentru M de la punctul a., 
+    se poate incerca micsorarea acestui ordin, pentru a gasi un filtru mai bun. 
+  . Pentru a demonstra rezultatele de la acest punct, la fiecare filtru FIR proiectat se vor afisa 
+    grafice similare celor de la punctul a. Bineinteles, aici, nu se va mai afisa perioada de 
+    esantionare, deoarece ea nu a fost utilizata in proiectarea filtrelor FIR. Insa ordinul 
+    gasit este foarte important si trebuie afisat. 
+  . Se mai pot afisa si graficele erorilor dintre fiecare filtru FIR si cel de la punctul a. 
+    Normele acestor erori va pot ajuta sa efectuati o comparatie riguroasa intre cele doua filtre FIR.
+  . La verificare, fiti pregatiti sa justificati aceasta comparatie, pentru a obtine punctaj cat mai mare. 
+
+Faza 2, punctul a
+~~~~~~~~~~~~~~~~~
+  . Specificatiile de proiectare sunt cele de la Faza 1, punctul a. (si nu cele din enuntul prezentarii!). 
+    In plus, se va alege Delta_s = 2*Delta_p (dublu!). 
+  . Acest punct se rezolva ca punctul e de la Faza 1 (dupa acelasi algoritm). Singura diferenta o 
+    constituie faptul ca, aici, vi se cere ordinul minim. Aceasta inseamna ca trebuie in prealabil 
+    obtinut ordinul M al unui filtru Butterworth ce verifica noile specificatii de proiectare (cu 
+    Delta_s dublul lui Delta_p). Daca ordinul M al noului filtru Butterworth a produs deja un filtru 
+    eliptic care se incadreaza in tolerante, atunci M trebuie micsorat pana cand filtrul proiectat 
+    nu mai verifica specificatiile de proiectare. 
+  . Demonstrarea rezolvarii acestui punct se realizeaza ca la punctul e., Faza 1. Comparatia se va efectua 
+    acum intre filtrele Cauer si Butterworth avand aceleasi specificatii de proiectare. 
+
+Faza 2, punctul b
+~~~~~~~~~~~~~~~~~
+  . Filtrul Butterworth a fost obtinut la punctul precedent. Celelalte filtre se pot obtine ca la 
+    punctul e., Faza 1. 
+  . Pentru a indica filtrul cel mai bun, va trebui sa gasiti din nou un compromis intre apropierea 
+    caracteristicii sale de cea a filtrului ideal si ordinul sau (care se vrea cat mai mic). 
+  . Graficele de afisat aici sunt ca la punctul e. al Fazei 1.
+  . La verificare, este bine sa propuneti un clasament al celor 4 filtre. 
+
+Faza 2, punctul c
+~~~~~~~~~~~~~~~~~
+  . La acest punct, trebuie sa fiti foarte atenti cum apelati functiile CHEBY1 si CHEBY2. 
+  . Veti observa, desigur, ca o functie foloseste numai omega_p si Delta_p, iar cealalata numai 
+    omega_s si Delta_s. De asemenea, va trebui sa adaptati tolerantele la argumentul aferent de 
+    intrare care se masoara in dB. 
+    ~~~~~~~
+  . Atentie! Argumentele de intrare legate de tolerantele specificate NU se obtin prin simpla 
+             conversie la dB a acestor tolerante. Este bine sa va uitati cu mare atentie la 
+             Figura 6.3 din prezentarea proiectului de la sedinta de laborator si sa puneti 
+             in corespondenta fiecare caracteristica de frecventa cu apelul functiei aferente.
+    ~~~~~~~
+  . Graficele de afisat aici sunt ca la punctul e. al Fazei 1.
+  . La verificare, este bine sa reactualizati clasamentul pentru cele 6 filtre (in loc de 4). 
+
+Faza 3
+~~~~~~
+  . Specificatiile de proiectare se obtin astfel: 
+     > Delta_p = 5%;
+     > atenuare de cel putin 30 dB in banda de stopare; 
+     > Ts este cel obtinut la Faza 1, punctul a.;
+     > omega_s = omega_p + pi/33;
+     > omega_p = PS_PRJ_3_Faza_3(ng,ns) ;
+  . Functia PS_PRJ_3_Faza_3 are aceleasi argumente de intrare ca si functia PS_PRJ_3_Faza_1a. 
+  . Pentru a rezolva aceasta faza, este bine sa va definiti un criteriu de performanta a filtrului
+    proiectat, care sa va permita o comparatie numerica, riguroasa, a performantelor celor 
+    4 filtre. Acest criteriu de performanta ar trebui sa ia in considerare: respectarea tolerantelor, 
+    ordinul filtrului si distanta fata de filtrul ideal. Fiecare student este liber sa-si defineasca 
+    propriul sau criteriu de performanta. 
+    ~~~~~~~
+  . Atentie! Ordinul filtrului si distanta fata de filtrul ideal sunt performante opuse. Trebuie 
+             sa tineti cont de aceasta opozitie cand va definiti criteriul de performanta. 
+    ~~~~~~~
+    ~~~~~~~~~~~~~
+  . MARE ATENTIE! NU PRELUATI CRITERIUL DE PERFORMANTA DE LA ALT COLEG, deoarece veti fi penalizati 
+                  si ISC se va incrementa (caz in care nu veti mai putea solicita conversia punctajului 
+                  la nota, iar examenul devine obligatoriu pentru promovare). In plus, persoana de la 
+                  care ati preluat criteriul va fi si ea penalizata la fel. 
+    ~~~~~~~~~~~~~
+  . Pentru concursul de proiectare, trebuie sa furnizati: 
+     a. raspunsul in frecventa al filtrului ales ca fiind cel mai bun, H, evaluat cu functia FREQZ 
+        si rezolutia K=5000;
+     b. ordinul filtrului, M;
+     c. pulsatia de trecere, omega_p; 
+     d. perechile {H,M} ale celorlalte 3 filtre, unde H este calculat cu rezolutia K=5000. 
+  . Este bine sa impachetati cele 4 raspunsuri in frecventa H, cele 4 ordine M si pulsatia omega_p 
+    intr-o arhiva de tip .MAT, pe care o puteti salva cu functia SAVE. Apoi, o transmiteti 
+    indrumatorului de laborator in momentul verificarii. 
+  . Se vor afisa caracteristicile de frecventa ale celor 4 filtre, intr-o singura fereastra, 
+    care va contine o matrice cu 2x4 grafice. Pe fiecare coloana a matricii, se vor afisa spectrul 
+    si faza cate unui filtru (sunt 4 filtre, deci 4 coloane). Pe grafice, se vor specifica: tipul
+    de filtru, ordinul, valoarea criteriului de performanta (daca s-a definit si calculat). 
+  . Graficele se vor afisa de la stanga la dreapta, in ordinea descrescatoare a criteriului de performanta,
+    daca exista sau a performantei evaluate intuitiv/empiric (daca nu exista criteriu de performanta 
+    definit). De asemenea, pe graficul spectrului oricarui filtru, se vor trasa liniile orizontale 
+    si verticale ca in graficul spectrului de la Faza 1, punctul a. Aceasta va demonstra incadrarea 
+    filtrului in tolerantele impuse. 
+
+Faza 4 (optionala)
+~~~~~~~~~~~~~~~~~~
+  . Pentru a putea implementa procedura de proiectare a noului filtru, trebuie sa reluati, cu atentie, 
+    cei trei pasi din prezentarea proiectului de la sedinta de laborator (incepand cu pagina 14). 
+    ~~~~~~~
+  . Atentie! Aceste calcule trebuie incluse in raportul proiectului. 
+    ~~~~~~~
+  . Dupa ce ati obtinut formulele de implementare, puteti modifica functia BUT_FTI in concordanta 
+    cu acestea. 
+  . Pentru demonstrarea fazei, veti prelua datele de proiectare de la Faza 1, punctul a. si veti 
+    afisa aceleasi grafice ca la acel punct. 
+  . Observati cum s-a modificat ordinul si incercati sa explicati de ce ar fi necesara impunerea 
+    unei tolerante superioare lui 1. 

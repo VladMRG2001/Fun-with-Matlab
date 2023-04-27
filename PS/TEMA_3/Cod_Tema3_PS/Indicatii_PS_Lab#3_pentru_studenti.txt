@@ -1,0 +1,119 @@
+Tema 1, punctul a
+~~~~~~~~~~~~~~~~~
+  . Se va initia apelul: 
+
+    >> [phi,rho] = PS_Lab_3_Tema_1a(ng,ns) ; 
+
+    unde ng = numarul grupei (333AB=1, 334AB=2, 331AC=3, ..., 334AC=6, Restantieri=7),
+    iar ns este numarul de ordine al studentului in grupa sa. (Functia 
+    aceasta, ca si cele ce urmeaza, este disponibila pe Moodle in 
+    subdirectorul 12 si in saptamana #6.)
+  . Primul argument de iesire este unghiul phi cu care va lucra studentul din 
+    grupa ng avand numarul de ordine ns. 
+  . Al doilea argument, rho, este un vector cu 5 elemente reprezentand amplitudini 
+    diferite ale polului complex in intervalul [0,1]. Ele sunt ordonate crescator.
+  . Graficele studentului trebuie sa contina cele 5 variatii suprapuse 
+    (cate una pentru fiecare valoare a lui rho) ca in Figura 3.1. Se va indica graficul 
+    pentru valoarea minima si cel pentru valoarea maxima ale lui rho cu ajutorul unei 
+    legende. Se vor compara cele 5 caracteristici.
+  . Pentru graficele reprezentarilor in frecventa (atat la aceasta tema cat si la toate 
+    celelalte care urmeaza), se va opera cu o rezolutie minima de 1000 de puncte. 
+    Aceasta inseamna ca banda [-pi,+pi] se va discretiza in minim 1000 de pulsatii.
+  . Nu trebuie uitat graficul amplasarii celor 5 zerouri, trasat cu functia ZPLANE, 
+    in care argumentul de intrare trebuie sa fie un vector de tip coloana (altfel el 
+    este vazut drept vector de coeficienti ai polinoamelor si nu de radacini). 
+  . Atentie! La fiecare rulare cu parametrii ng si ns fixati (aceiasi) rezulta 
+    diferiti vectori "rho". Este bine sa memorati vectorul daca doriti sa il 
+    folositi pentru a efectua diferite rulari ale softului aferent acestui punct. 
+
+Tema 1, punctul b
+~~~~~~~~~~~~~~~~~
+  . Se va initia apelul: 
+
+    >> phi = PS_Lab_3_Tema_1b(ng,ns) ; 
+
+    cu aceleasi argumente de intrare ca mai sus. 
+  . Se va obtine un nou unghi phi. Amplitudinea rho va fi cea de la punctul precedent 
+    (5 valori ordonate crescator). 
+  . Se vor trasa aceleasi grafice la punctul precedent. 
+
+Tema 2
+~~~~~~
+  . Se vor folosi parametrii phi si rho de la tema precedenta (doua valori pentru phi, 
+    cinci valori pentru rho). 
+  . Se vor trasa aceleasi grafice la tema precedenta (a si b). 
+
+Tema 3, punctul a
+~~~~~~~~~~~~~~~~~
+  . Se vor folosi parametrii phi si rho de la temele precedente (doua valori pentru phi, 
+    cinci valori pentru rho). 
+  . Se vor trasa aceleasi grafice la Tema 1 (a si b). 
+
+Tema 3, punctul b
+~~~~~~~~~~~~~~~~~
+  . Se vor folosi parametrii phi si rho obtinuti la Tema 1, punctul a. 
+
+Tema 4, punctul a
+~~~~~~~~~~~~~~~~~
+  . Se va initia apelul 
+
+    >> [poli,zerouri] = PS_Lab_3_Tema_4a(ng,ns) ;
+
+    cu aceleasi argumente de intrare ca mai sus. 
+  . Rezulta doi vectori linie cu nume sugestive: poli si zerouri. 
+    Lungimile lor variaza intre 2 si 4. Toti polii si toate zerourile 
+    sunt generate in afara cercului de raza 0.7. 
+  . Pentru a gasi polinoamele aferente filtrului, se poate rula functia POLY. 
+  . Pentru a gasi pulsatiile corespunzatoare polilor si zerourilor se poate 
+    folosi functia ANGLE. 
+  . Pentru a afisa polii si zerourile in planul complex, se poate folosi functia 
+    ZPLANE, in care vectorii "poli" si "zerouri" de mai sus trebuie sa fie de tip 
+    coloana (altfel ei sunt vazuti drept coeficienti ai polinoamelor si nu 
+    radacini). 
+  . Se va observa comportamentul spectrului in jurul pulsatiilor corespunzatoare 
+    polilor si zerourilor si se va incerca explicarea acestui comportament. 
+  . Atentie! La fiecare rulare cu parametrii ng si ns fixati (aceiasi) rezulta 
+    diferiti vectori "poli" si "zerouri". Este bine sa memorati acesti vectori 
+    daca doriti sa retineti o anumita pereche pentru a efectua diferite rulari 
+    ale softului aferent acestui punct. 
+
+Tema 4, punctul b
+~~~~~~~~~~~~~~~~~
+  . Se va initia apelul 
+
+    >> [poli,zerouri] = PS_Lab_3_Tema_4b(ng,ns) ;
+
+    cu aceleasi argumente de intrare ca mai sus. 
+  . Rezulta doi vectori linie cu nume sugestive: poli si zerouri. 
+    Lungimile lor variaza intre 2 si 4. Toti polii si toate zerourile 
+    sunt generate in interiorul cercului de raza 0.3. 
+  . Se va proceda exact ca in cazul punctului precedent, dar pentru 
+    polii si zerourile din acest caz. 
+
+Tema 5, punctul a
+~~~~~~~~~~~~~~~~~
+  . Se vor afisa si comenta graficele oferite de functia MUSICAL_TONES pentru 
+    cele 5 instrumente predefinite si pentru instrumentul utilizator obtinut 
+    cu polul implicit. 
+  . Graficele se obtin prin setarea cu o valoare nenula a ultimului argument 
+    de intrare in functia MUSICAL_TONES. 
+  . Se recomanda si ascultarea sunetelor in difuzoare. 
+
+Tema 5, punctul b
+~~~~~~~~~~~~~~~~~
+  . La inceput, se vor testa separat polii obtinuti din cei de la tema precedenta 
+    (la ambele puncte!), prin calculul valorii absolute. Prin urmare, daca poli(i) 
+    este un astfel de pol, aici se va testa abs(poli(i)). Atentie! Vectorul poli 
+    contine radacini complex conjugate, astfel ca acestea au aceeasi valoare absoluta; 
+    nu trebuie testata de doua ori. 
+  . Apoi se vor testa poli de forma -abs(poli(i)). Se vor afisa si comenta diferentele 
+    dintre filtrele aplicate aici fata de cele aplicate anterior. 
+  . La pasul urmator, rutina MUSICAL_TONES se va modifica in asa fel incat filtrul 
+    sa admita si un zerou. Dupa aceea, se vor testa, pe rand zerourile de la Tema 
+    precedenta (ambele puncte!), similar cum au fost testati polii. Se vor testa 
+    toate combinatiile de tip +-abs(zerouri(i)) cu +-abs(poli(j)).
+  . Se recomanda si ascultarea sunetelor in difuzoare, pentru a putea sesiza 
+    diferentele intre ele. Pe langa aceasta, se vor afisa si comenta diferentele 
+    intre semnalele si spectrele afisate. 
+  . Toate graficele se afiseaza cu ajutorul functiei MUSICAL_TONES, precizand o valoare 
+    nenula pentru ultimul argument de intrare al acesteia. 

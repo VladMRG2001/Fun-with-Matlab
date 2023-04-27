@@ -1,0 +1,145 @@
+Tema 1
+~~~~~~
+  . Se va initia apelul: 
+
+    >> [omega0,M] = PS_Lab_2_Tema_1(ng,ns) ; 
+
+    unde ng = numarul grupei (333AB=1, 334AB=2, 331AC=3, ..., 334AC=6, Restantieri=7),
+    iar ns este numarul de ordine al studentului in grupa sa. (Functia 
+    aceasta, ca si cele ce urmeaza, este disponibila pe Moodle in 
+    subdirectorul 12 si in saptamana #3.)
+  . Primul argument de iesire este pulsatia omega0 cu care va lucra studentul din 
+    grupa ng avand numarul de ordine ns. 
+  . Graficele studentului trebuie sa contina 5 perioade. 
+    (Studentul trebuie sa determine perioada aferenta in prealabil.)
+  . Al doilea argument (M) este rezolutia in frecventa pe care trebuie sa o 
+    utilizeze studentul in grafice. Mai precis, intervalul [-pi,+pi] trebuie sa 
+    contina exact 2*M-1 puncte inclusiv capetele si valoarea nula. Se recomanda sa 
+    se discretizeze intai intervalul [0,pi] in M puncte (incluziv zero si pi), apoi
+    sa se discretizeze intervalul [-pi,0) in M-1 puncte (inclusiv -pi, dar fara zero). 
+    In final, cei doi vectori de pulsatii discretizare, trebuie concatenati in ordinea 
+    crescatoare a valorilor elementelor lor. 
+
+Tema 2
+~~~~~~
+  . Parametrii omega si M sunt aceiasi ca la Tema 1 de mai sus.
+  . Pentru a produce defazajul phi, se va initia apelul 
+
+    >> phi = PS_Lab_2_Tema_2(ng,ns) ; 
+
+    cu aceleasi argumente de intrare ca mai sus. 
+  . La punctul c. al temei, se vor trasa grafice pentru: 
+    0.3*phi, 0.7*phi, phi, 1.2*phi, 1.5*phi. 
+
+Tema 3, punctele a,b,c
+~~~~~~~~~~~~~~~~~~~~~~
+  . Prima pulsatie, omega1, va fi cea generata pentru Tema 1 (omega1=omega0). 
+  . Pulsatia omega2 se obtine cu apelul: 
+
+    >> omega2 = PS_Lab_2_Tema_3abc(ng,ns) ; 
+
+    cu aceleasi argumente de intrare ca mai sus. 
+  . Grila de frecvente de la punctul b. se va construi folosind parametrul M 
+    generat pentru Tema 1. 
+  . Pentru punctul c. se vor genera cele doua amplitudini cu apelul: 
+
+    >> [a1,a2] = PS_Lab_2_Tema_3c(ng,ns) ; 
+
+    cu aceleasi argumente de intrare ca mai sus. Pulsatiile celor doua functii 
+    cosinus sunt omega1 si omega2 de mai sus. 
+
+Tema 3, punctul d
+~~~~~~~~~~~~~~~~~
+  . Se va initia apelul: 
+
+    >> [omega1,omega2,M1,M2] = PS_Lab_2_Tema_3d(ng,ns) ; 
+
+    cu aceleasi argumente de intrare ca mai sus. 
+  . Primele doua argumente de iesire sunt cele doua pulsatii apropiate cu care se
+    va lucra. Prima pulsatie, omega1, va furniza o perioada intreaga, N1. Pentru a gasi 
+    a doua perioada, N2, care corespunde lui omega2, va trebui folosita formula 
+    2*k*pi/N din prima lucrare de laborator. 
+     # Mai intai, trebuie calculat raportul 2*pi/omega2. Acesta va fi un numar fractionar, 
+       T2, dar rational (nu irational!). Este clar ca: 
+                        T2 = 2*pi/omega2 = 2*pi/(2*k2*pi/N2) = N2/k2. 
+       Prin urmare, trebuie gasit cel mai mic intreg k2 pentru care produsul k2*T2 este un intreg. 
+       Acel intreg este N2 - perioada. Din cauza erorilor numerice, ne putem multumi cu N2 
+       determinat ca fiind partea intreaga a acelui numar fractionar avand primele 2-3 zecimale nule. 
+       Este posibil ca N2 sa fie foarte mare, fata de N1. Daca N=cmmmc(N1,N2) are valori rezonabile 
+       (maxim 2-3 mii), se poate trasa graficul semnalului pe cele 5 perioade (5*N). Altfel, perioada 
+       e mult mrea mare se poate reprezenta graficul semnalului pe durata 5*N1. 
+   . Argumentele de iesire M1 si M2 se refera la rezolutiile de reprezentare in frecventa si vor fi 
+     folosite exact cum a fost folosit M in cadrul temelor anterioare. 
+   . Rezolutia M1 este mica. Din aceasta cauza, cand se traseaza spectrul (cu FREQZ si rezolutia M1), 
+     ar trebui sa se observe ca nu se mai pot distinge cele doua pulsatii (sau perioade). 
+   . Rezolutia M2 a fost stabilita mai mare, la o valoare care ar permite, intrucatva, observarea celor 
+     doua pulsatii. 
+   . Se mai poate trasa spectul si cu functia FFT (considerand lungimea semnalului 5*N sau 5*N1, ca 
+     mai sus). In acest caz, ar trebui sa se poata distinge cele doua pulsatii, avand in vedere ca 
+     rezolutia in frecventa este chiar egala cu lungimea semnalului. (La FFT nu e nevoie de parametrul 
+     de rezolutie M.) Aceasta lungime este, de regula, superioara lui M2 (care, la randul lui, e mai 
+     mare ca M1). 
+   . Punctul d. al temei vrea sa arate ca Transformata Fourier are limitele ei in a distinge intre 
+     pulsatii apropiate.  
+
+Tema 4
+~~~~~~
+  . Trasarea spectrelor se poate realiza fie cu functia FREQZ, fie cu functia FFT. Daca se alege 
+    prima functie, se va opera cu parametrul de rezolutie in frecventa (M) obtinut la Tema 1. 
+    De aceasta data, se va reprezenta spectrul doar pe banda [0,pi], deoarece se stie ca el e 
+    simetric (toate cele 3 seturi de date au valori reale). Se recomanda folosirea ambelor functii, 
+    spre comparatie. Nu uitati sa trasati spectrele in deciBeli (nu are rost trasarea altfel, 
+    caci nu se vede nimic!).  
+  . La punctul a., se va lucra cu semnale cu urmatoarele durate: maxima (aproape 300), 100 si 50. 
+  . La punctele b. si c., nu aveti precizate perioadele si trebuie sa le determinati, din reprezentarile 
+    in frecventa, cat se poate de precis. Daca rezolutia in frecventa (M) este prea mica, o puteti 
+    mari (2*M, 3*M etc.), pentru a avea o precizie de localizare cat mai buna. Pentru micsorarea 
+    duratelor de semnal, se recomanda impartirea duratei initiale, intai la 2, apoi la 4. 
+
+Tema 5
+~~~~~~
+  . Se va initia apelul 
+
+    >> [N,N1,N2,N3] = PS_Lab_2_Tema_5(ng,ns) ; 
+
+    cu aceleasi argumente de intrare ca mai sus. 
+  . Rezulta 4 durate de semnal ce vor fi folosite astfel:
+    a. Se genereaza o secventa pseudo-aleatoare de durata N.
+    b. Se traseaza graficul semnalului generat. 
+    c. Se traseaza 4 densitati spectrale asociate acestui semnal: 
+       una pentru toate datele, iar celelalte 3 trunchiind datele la primele 
+       N1, N2, respectiv N3 durate (toate sunt mai mici ca N). Aceasta inseamna 
+       sa folosim o aceeasi realizare a zgomotului alb. 
+    d. Se genereaza inca 3 semnale pseudo-aleatoare diferite, de lungimi 
+       N1, N2, respectiv N3 (realizari diferite). 
+    e. Se traseaza perechile de grafice {semnal, densitate spectrala} pentru 
+       fiecare dintre cele 3 semnale generate anterior. 
+  . Trebuie sa precizati daca densitatea spectrala depinde sau nu de aceste durate 
+    si/sau de realizarile zgomotului alb. 
+
+Tema 6
+~~~~~~
+  . Parametrul omega0 este cel folosit in Tema 1. 
+  . Parametrul N este cel folosit in Tema 5. 
+  . Parametrul de rezolutie M este cel folosit in Tema 1. Densitatile spectrale se 
+    traseaza in dB si doar pe banda [0,pi]. Se recomanda trasarea si cu ajutorul 
+    lui FREQZ si cu ajutorul lui FFT. 
+  . La punctul c., se va opera mai intai cu o amplitudine oferita de instructiunea: 
+
+    >> a = PS_Lab_2_Tema_6c(ng,ns) ;
+
+    cu aceleasi argumente de intrare ca mai sus. Apoi se poate varia aceasta amplitudine, 
+    fie in sus, fie in jos, pentru a propune o valoare maxima, a_max. Atentie, nu trebuie 
+    generat decat un singur zgomot alb, care se va memora intr-o variabila vectoriala 
+    (de exemplu, e). Acest zgomot va fi folosit mereu, indiferent de amplitudinea cu 
+    care se va inmulti. Prin urmare, *NU* SE VA GENERA CATE UN ZGOMOT ALB PENTRU FIECARE 
+    AMPLITUDINE!
+  . La punctul d., grila de variatie a amplitudinii se stabileste esantionand intervalul 
+    [0.01,a_max] cu rezolutia M. Pentru fiecare amplitudine a grilei de amplitudini, 
+    se calculeaza varianta semnalului si varianta zgomotului alb generat. Se poate folosi 
+    functia VAR in acest scop. Atentie, zgomotul alb este cel generat la punctul c. 
+    Nu se va genera alt zgomot! De asemenea, SNR se calculeaza si se reprezinta in deciBeli, 
+    dar cu formula 10*log(.), deoarece varianta este deja calculata folosind valori la patrat 
+    ale semnalelor. 
+  . Din graficul SNR, puteti spune care este valoarea minima a acestuia pentru care se mai 
+    poate detecta ca o sinusoida e scufundata in zgomot. 

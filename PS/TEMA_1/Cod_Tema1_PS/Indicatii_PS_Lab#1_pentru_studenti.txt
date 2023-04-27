@@ -1,0 +1,81 @@
+Tema 3, punctul b
+~~~~~~~~~~~~~~~~~
+  . Se va initia apelul: 
+
+    >> omega = PS_Lab_1_Tema_3b(ng,ns) ; 
+
+    unde ng = numarul grupei (333AB=1, 334AB=2, 331AC=3, ..., 334AC=6, Restantieri=7),
+    iar ns este numarul de ordine al studentului in grupa sa. (Functia 
+    aceasta, ca si cele ce urmeaza, este disponibila pe Moodle in 
+    subdirectorul 12 si in saptamana #2.)
+  . Aceasta este pulsatia omega cu care va lucra studentul din grupa ng 
+    avand numarul de ordine ns. 
+  . Graficele studentului trebuie sa contina 5 perioade. 
+    (Studentul trebuie sa determine perioada aferenta in prealabil.)
+
+Tema 3, punctul c
+~~~~~~~~~~~~~~~~~
+  . Se va initia apelul: 
+
+    >> omega = PS_Lab_1_Tema_3c(ng,ns) ; 
+
+    cu aceleasi argumente de intrare ca mai sus. 
+  . Studentul trebuie sa traseze variatia pe 5 (aproape) perioade. Pentru aceasta, 
+    el va trebui sa calculeze perioada fractionara si sa o aproximeze la intregul 
+    imediat superior. Acel intreg se va inmulti cu 5, pentru a afla durata 
+    semnalului de trasat grafic.
+
+Tema 3, punctul d
+~~~~~~~~~~~~~~~~~
+  . Studentul va lucra cu perioada de baza data de punctul b. Va trasa graficul 
+    sinusoidei discrete (cu functia STEM) peste graficele celor doua sinusoide 
+    "continue", alegand perioada de esantionare egala cu 1. Pentru graficele 
+    "continue" (trasate cu functia PLOT), se poate alege o rezolutie de 10-100 
+    de ori mai mare. 
+
+Tema 4, punctul a
+~~~~~~~~~~~~~~~~~
+  . Se va initia apelul: 
+
+    >> [N,L] = PS_Lab_1_Tema_4a(ng,ns) ; 
+
+    cu aceleasi argumente de intrare ca mai sus. 
+  . Rezulta perechea {N,L} de lucru, diferita pentru fiecare student. 
+  . Pentru marirea lui N, se recomanda inmultirea lui cu 1.5, apoi cu 2, 
+    cu 3, cu 4, cu 5 si cu 10. 
+
+Tema 4, punctul b
+~~~~~~~~~~~~~~~~~
+  . Se va folosi numarul N generat la punctul anterior. 
+
+Tema 5
+~~~~~~
+  . Se va initia apelul: 
+
+    >> N = PS_Lab_1_Tema_5(ng,ns) ; 
+
+    cu aceleasi argumente de intrare ca mai sus. 
+  . Rezulta durata de semnal (N) ce o va folosi fiecare student. 
+  . Se poate recomanda aici ca histograma sa aiba o rezolutie egala 
+    aproximativ cu N/10. Deci, la 1000 de date generate, se va construi 
+    o histograma cu 100 de valori. Apelul functiei HIST este foarte 
+    simplu: 
+
+    >> h = hist(y,round(N/10)) ;
+
+    unde y este semnalul generat cu randn, de lungime N. Trasarea lui 
+    h ar trebui facuta cu functia BAR din Matlab (nu cu STEM si nici cu PLOT). 
+    Aceasta functie traseaza chiar grafice de tip histograma (cu bare verticale).
+  . Lungimea semnalului generat N va fi marita astfel: 1.5*N, 2*N, 3*N, 4*N, 5*N, 10*N 
+    (6 trepte de marire). Se atrage atentia ca histograma se va calcula 
+    cu aceeasi rezolutie (N/10) pentru toate semnalele. (Adica rezolutia histogramei 
+    nu se mareste cu durata semnalului, ci ramane mereu aceeasi, stabilita la inceput.) 
+  . O alta problema de rezolvat este trasarea gaussienei reale. Si ea trebuie trasata 
+    cu o anumita rezolutie. Recomandam ca rezolutia sa fie chiar N sau cel putin N. 
+    Se va implementa formula (1.19) a gaussienei cu \sigma=1, iar \mu=0. Amplitudinea 
+    gaussienei trebuie de fiecare data adaptata la amplitudinea histogramei, asa cum 
+    este precizat in enuntul temei. Trasarea gaussienei se va face cu PLOT, dar ea 
+    trebuie calculata in N puncte. Ramane N, chiar daca lungimea semnalului generat creste. 
+    Practic, trebuie esantionat intervalul [-3,+3] in N puncte si calculata gaussiana 
+    in acele puncte. 
+
